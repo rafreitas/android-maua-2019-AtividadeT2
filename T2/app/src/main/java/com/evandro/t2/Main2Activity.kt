@@ -16,7 +16,7 @@ class Main2Activity : AppCompatActivity()
     //Funcao pesquisa objeto no banco de dados
     fun search(view: View)
     {
-        val intent = Intent(this, Main3Activity::class.java)
+        val intent = Intent(this, Main4Activity::class.java)
         startActivity(intent)
     }
 

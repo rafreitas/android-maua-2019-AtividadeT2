@@ -28,26 +28,21 @@ class Main3Activity : AppCompatActivity() {
             editTextColor.text.clear()
             editTextPlasticType.text.clear()
             this.textViewResult.text = "Added user : "+result
-            this.ll_entries.removeAllViews()
         }
 
         fun delete(v:View){
             var id = this.editTextID.text.toString()
             val result = usersDBHelper.deletePlastic(id)
             this.textViewResult.text = "Deleted user : "+result
-            this.ll_entries.removeAllViews()
         }
 
         fun showAllPlastics(v:View){
             var plastic = usersDBHelper.readAllPlastics()
-            this.ll_entries.removeAllViews()
             plastic.forEach {
                 var tv_user = TextView(this)
                 tv_user.textSize = 30F
                 tv_user.text = it.name.toString() + " - " + it.color.toString() + " - " + it.plasticType.toString()
-                this.ll_entries.addView(tv_user)
             }
             this.textViewResult.text = "Fetched " + plastic.size + " users"
         }
 }
-

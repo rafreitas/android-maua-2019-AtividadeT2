@@ -127,7 +127,7 @@ class usersDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
             "CREATE TABLE " + DBContract.UserEntry.TABLE_NAME + " (" +
                     DBContract.UserEntry.COLUMN_ID + " TEXT PRIMARY KEY," +
                     DBContract.UserEntry.COLUMN_NAME + " TEXT," +
-                    DBContract.UserEntry.COLUMN_COLOR + " TEXT)" +
+                    DBContract.UserEntry.COLUMN_COLOR + " TEXT," +
                     DBContract.UserEntry.COLUMN_PLASTIC_TYPE + " TEXT)"
 
         private val SQL_DELETE_ENTRIES = "DROP TABLE IF EXISTS " + DBContract.UserEntry.TABLE_NAME

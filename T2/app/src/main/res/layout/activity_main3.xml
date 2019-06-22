@@ -8,92 +8,70 @@
         tools:context=".Main3Activity">
 
     <Button
-            android:text="ADD"
+            android:text="Adicionar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnAdd" android:onClick="addPlastic"
-            app:layout_constraintHorizontal_chainStyle="spread_inside" android:layout_marginTop="26dp"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPlasticType"
-            app:layout_constraintEnd_toStartOf="@+id/btnView" app:layout_constraintStart_toStartOf="parent"
-            android:layout_marginStart="16dp"/>
+            app:layout_constraintTop_toTopOf="@+id/btnDelete" app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="12dp"
+            app:layout_constraintBottom_toBottomOf="@+id/btnDelete"/>
     <EditText
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="65dp"
             android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/editTextName"
             android:hint="Nome"
-            app:layout_constraintTop_toBottomOf="@+id/editTextID" android:layout_marginBottom="13dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toTopOf="@+id/editTextColor"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginTop="79dp"
+            android:layout_marginBottom="77dp" app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/editTextID" app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/editTextColor"
             android:layout_marginStart="12dp" android:layout_marginEnd="12dp"/>
     <EditText
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="65dp"
             android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/editTextColor"
             android:hint="Cor"
-            app:layout_constraintTop_toBottomOf="@+id/editTextName" android:layout_marginBottom="16dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toTopOf="@+id/editTextPlasticType"
+            android:layout_marginTop="172dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="14dp" android:layout_marginEnd="14dp"/>
     <EditText
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="65dp"
             android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/editTextPlasticType" android:hint="Tipo de Plástico"
-            app:layout_constraintTop_toBottomOf="@+id/editTextColor" android:layout_marginBottom="26dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toTopOf="@+id/btnDelete"
+            android:layout_marginTop="93dp"
+            app:layout_constraintTop_toBottomOf="@+id/editTextName" android:layout_marginBottom="94dp"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintBottom_toTopOf="@+id/textViewResult"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="9dp" android:layout_marginEnd="9dp"/>
     <EditText
             android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_height="65dp"
             android:inputType="textPersonName"
             android:ems="10"
             android:id="@+id/editTextID"
             android:hint="ID"
             android:layout_marginTop="16dp"
-            android:layout_marginBottom="14dp" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/editTextName" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             android:layout_marginStart="14dp" android:layout_marginEnd="14dp"/>
     <Button
-            android:text="view"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnView" android:onClick="showAllPlastics"
-            app:layout_constraintTop_toBottomOf="@+id/btnDelete" app:layout_constraintStart_toEndOf="@+id/btnAdd"
-            app:layout_constraintEnd_toStartOf="@+id/btnDelete" android:layout_marginBottom="20dp"
-            app:layout_constraintBottom_toTopOf="@+id/textViewResult" android:layout_marginEnd="1dp"
-    />
-    <Button
-            android:text="Delete"
+            android:text="Apagar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/btnDelete" android:onClick="delete"
-            app:layout_constraintTop_toBottomOf="@+id/editTextPlasticType"
-            app:layout_constraintStart_toEndOf="@+id/btnView" app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@+id/btnView" android:layout_marginEnd="16dp"
-    />
-    <LinearLayout
-            android:orientation="vertical"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:id="@+id/ll_entries"
-            app:layout_constraintTop_toBottomOf="@+id/textViewResult" android:layout_marginBottom="6dp"
-            app:layout_constraintEnd_toEndOf="parent" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:layout_marginStart="3dp" android:layout_marginEnd="3dp">
-    </LinearLayout>
+            app:layout_constraintBottom_toBottomOf="parent" android:layout_marginEnd="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="70dp"/>
     <TextView
-            android:layout_width="0dp"
-            android:layout_height="0dp"
+            android:layout_width="218dp"
+            android:layout_height="30dp"
             android:id="@+id/textViewResult"
-            app:layout_constraintTop_toBottomOf="@+id/btnView" android:layout_marginBottom="7dp"
-            app:layout_constraintEnd_toEndOf="@+id/btnView" app:layout_constraintBottom_toTopOf="@+id/ll_entries"
-            app:layout_constraintStart_toStartOf="@+id/btnView"
-            android:layout_marginStart="16dp" android:layout_marginEnd="16dp"/>
+            app:layout_constraintStart_toStartOf="parent" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginBottom="43dp" app:layout_constraintBottom_toTopOf="@+id/btnAdd"/>
 </android.support.constraint.ConstraintLayout>
