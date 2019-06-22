@@ -10,14 +10,15 @@ import kotlinx.android.synthetic.main.activity_main3.*
 
 class Main3Activity : AppCompatActivity()
 {
-    override fun onCreate(savedInstanceState: Bundle?)
-    {
+    lateinit var usersDBHelper : UsersDBHelper
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main3)
 
-        //Cria um adapter
-        val adapter = ArrayAdapter<String>(this, android.R.layout.simple_list_item_1)
-
+        usersDBHelper = UsersDBHelper(this)
+    }
         //Configura o evento de click no botão
         fun addPlastic(v: View){
             if (editTextName.text.isEmpty())
@@ -34,16 +35,17 @@ class Main3Activity : AppCompatActivity()
             }
             else
             {
-                val id = editTextID.text.toString()
-                val name = editTextName.text.toString()
-                val color = editTextColor.text.toString()
-                val plasticType = editTextPlasticType.text.toString()
-                val result = usersDBHelper.insertUser(UserModel(id = id,name = name,color = color, plasticType = plasticType))
+                var id = this.editTextID.text.toString()
+                var name = this.editTextName.text.toString()
+                var color = this.editTextColor.text.toString()
+                var plasticType = this.editTextPlasticType.text.toString()
+                var result = usersDBHelper.insertUser(UserModel(id = id,name = name,color = color, plasticType = plasticType))
+                editTextID.text.clear()
                 editTextName.text.clear()
                 editTextColor.text.clear()
                 editTextPlasticType.text.clear()
                 Toast.makeText(applicationContext, "Objeto Adicionado", Toast.LENGTH_SHORT)
-                    .show()
+                        .show()
                 true
             }
         }
@@ -66,5 +68,5 @@ class Main3Activity : AppCompatActivity()
             }
             this.textViewResult.text = "Fetched " + users.size + " users"
         }
-    }
 }
+
