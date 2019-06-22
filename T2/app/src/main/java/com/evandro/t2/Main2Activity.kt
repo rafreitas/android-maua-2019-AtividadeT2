@@ -14,7 +14,7 @@ class Main2Activity : AppCompatActivity()
     }
 
     //Funcao pesquisa objeto no banco de dados
-    fun Source(view: View)
+    fun search(view: View)
     {
         val intent = Intent(this, Main3Activity::class.java)
         startActivity(intent)
@@ -22,8 +22,8 @@ class Main2Activity : AppCompatActivity()
 
         //Funcao muda de tela para inserir informações do objeto no banco de dados
     fun insertInformation(view: View)
-        {
-            val intent = Intent(this, Main3Activity::class.java)
-            startActivity(intent)
-        }
+    {
+        val intent = Intent(this, Main3Activity::class.java)
+        startActivity(intent)
+    }
 }

@@ -30,7 +30,7 @@ class usersDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
     }
 
     @Throws(SQLiteConstraintException::class)
-    fun insertUser(user: UserModel): Boolean {
+    fun insertPlastic(user: UserModel): Boolean {
         // Gets the data repository in write mode
         val db = writableDatabase
 
@@ -48,25 +48,25 @@ class usersDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
     }
 
     @Throws(SQLiteConstraintException::class)
-    fun deleteUser(userid: String): Boolean {
+    fun deletePlastic(id: String): Boolean {
         // Gets the data repository in write mode
         val db = writableDatabase
         // Define 'where' part of query.
         val selection = DBContract.UserEntry.COLUMN_ID + " LIKE ?"
         // Specify arguments in placeholder order.
-        val selectionArgs = arrayOf(userid)
+        val selectionArgs = arrayOf(id)
         // Issue SQL statement.
         db.delete(DBContract.UserEntry.TABLE_NAME, selection, selectionArgs)
 
         return true
     }
 
-    fun readUser(userid: String): ArrayList<UserModel> {
-        val users = ArrayList<UserModel>()
+    fun readPlastics(id: String): ArrayList<UserModel> {
+        val plastic = ArrayList<UserModel>()
         val db = writableDatabase
         var cursor: Cursor? = null
         try {
-            cursor = db.rawQuery("select * from " + DBContract.UserEntry.TABLE_NAME + " WHERE " + DBContract.UserEntry.COLUMN_ID + "='" + userid + "'", null)
+            cursor = db.rawQuery("select * from " + DBContract.UserEntry.TABLE_NAME + " WHERE " + DBContract.UserEntry.COLUMN_ID + "='" + id + "'", null)
         } catch (e: SQLiteException) {
             // if table not yet present, create it
             db.execSQL(SQL_CREATE_ENTRIES)
@@ -82,15 +82,15 @@ class usersDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
                 color = cursor.getString(cursor.getColumnIndex(DBContract.UserEntry.COLUMN_COLOR))
                 plasticType = cursor.getString(cursor.getColumnIndex(DBContract.UserEntry.COLUMN_PLASTIC_TYPE))
 
-                users.add(UserModel(userid, name, color, plasticType))
+                plastic.add(UserModel(id, name, color, plasticType))
                 cursor.moveToNext()
             }
         }
-        return users
+        return plastic
     }
 
-    fun readAllUsers(): ArrayList<UserModel> {
-        val users = ArrayList<UserModel>()
+    fun readAllPlastics(): ArrayList<UserModel> {
+        val plastic = ArrayList<UserModel>()
         val db = writableDatabase
         var cursor: Cursor? = null
         try {
@@ -111,11 +111,11 @@ class usersDBHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME,
                 color = cursor.getString(cursor.getColumnIndex(DBContract.UserEntry.COLUMN_COLOR))
                 plasticType = cursor.getString(cursor.getColumnIndex(DBContract.UserEntry.COLUMN_PLASTIC_TYPE))
 
-                users.add(UserModel(id, name, color, plasticType))
+                plastic.add(UserModel(id, name, color, plasticType))
                 cursor.moveToNext()
             }
         }
-        return users
+        return plastic
     }
 
     companion object {
